@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" , initial-scale=1.0" />
+	<meta name="Key words" content="HTML, CSS" />
+	<meta name="description" content="..." />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap" rel="stylesheet">
+
+
+	<title>Thank You!</title>
+	<style>
+		* {
+			font-family: poppins;
+		}
+
+		body {
+			margin: 0px;
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			text-align: center;
+			background-color: #323232;
+		}
+
+		#flip {
+			color: #f78181;
+			text-transform: uppercase;
+			font-size: 36px;
+			font-weight: bold;
+			position: fixed;
+			width: 100%;
+			display: block;
+			height: 50px;
+			overflow: hidden;
+			bottom: 45%;
+		}
+
+		#flip>div>div {
+			color: #fff;
+			padding: 4px 12px;
+			height: 45px;
+			margin-bottom: 45px;
+			display: inline-block;
+		}
+
+		#flip div:first-child {
+			animation: show 5s linear infinite;
+		}
+
+		@keyframes show {
+			0% {
+				margin-top: -270px;
+			}
+
+			5% {
+				margin-top: -180px;
+			}
+
+			33% {
+				margin-top: -180px;
+			}
+
+			38% {
+				margin-top: -90px;
+			}
+
+			66% {
+				margin-top: -90px;
+			}
+
+			71% {
+				margin-top: 0px;
+			}
+
+			99.99% {
+				margin-top: 0px;
+			}
+
+			100% {
+				margin-top: -270px;
+			}
+		}
+		.btn {
+            margin-top: 30px;
+            background-color: #f78181;
+            color: #ffffff;
+            padding: 13px 45px;
+            border: none;
+            font-weight: 500;
+            font-size: 17px;
+            letter-spacing: 4px;
+            padding: 13px 45px;
+            cursor: pointer;
+
+        }
+
+        .btn:hover {
+            background-color: #ffffff;
+			color: #f78181;
+        }
+
+		.button{
+			margin-top: 450px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="flip">
+		<div>Your Feedback!!!</div>
+		<div>Your Feedback!!!</div>
+		<div>Thank You For</div>
+	</div>
+	<div class="button">
+		<a href="index.html"> <button class=" btn">Back to Home</button></a>
+	</div>
+
+
+</body>
+
+</html>

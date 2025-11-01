@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap" rel="stylesheet">
+    
+    <title>Feedback Form</title>
+    <style>
+        * {
+            font-family:Poppins;
+             font-weight: 400; 
+        }
+
+        body {
+            margin: 20px;
+            /* color: #333333; */
+            background-color: hsl(0, 0%, 0%);
+            /* font-weight: 100; */
+            color: #ffffff;
+        }
+
+        .heading {
+            margin: 0 auto;
+            text-align: center;
+            /* font-weight: 100; */
+            color: #f78181;
+        }
+
+        form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            color: #000000;
+            font-weight: 300;
+            background-color: #ffffff;
+            border: 3px solid #f78181;
+            border-radius: 20px;
+
+          
+            /* border: 1px solid #f78181; */
+        }
+      
+        #button {
+            background-color: #f78181;
+            color: white;
+            cursor: pointer;
+        }
+
+        #button:hover {
+            color: #f78181;
+            font-weight:400;
+            background-color: white;
+            border: 3px solid #f78181;
+        }
+
+        ::selection {
+            color: white;
+            background-color: #323232;
+        }
+
+        .overall {
+            margin: 0 auto;
+            text-align: center;
+            font-weight: bold;
+            font-size: larger;
+            color: #f78181;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heading">
+        <h1>Feedback Form</h1>
+    </div>
+    <form id="feedbackform">
+        <label for="firstname">First Name:</label>
+        <input type="text" id="fname" name="fname" required>
+
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lname" name="lname" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Your Phone Number:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{11}" required
+            title="Please enter a valid phone number with exactly 10 digits.">
+
+        <label for="feedback">Feedback Message:</label>
+        <textarea id="feedback" name="feedback" rows="7"></textarea>
+
+        <div class="overall"><label title="Satisfaction with the website">Overall Satisfaction</label></div>
+        <label><input type="radio" name="satisfaction" value="satisfied" required> Satisfied</label>
+        <label><input type="radio" name="satisfaction" value="neutral" required> Neutral</label>
+        <label><input type="radio" name="satisfaction" value="unsatisfied" required> Unsatisfied</label>
+
+        <a href="Thankyou.html"><input id="button" type="submit" value="Submit Feedback"></a>
+    </form>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.getElementById('feedbackform');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                var fname = document.getElementById('fname').value;
+                var lname = document.getElementById('lname').value;
+                var email = document.getElementById('email').value;
+                var phone = document.getElementById('phone').value;
+                var feedback = document.getElementById('feedback').value;
+                var satisfaction = document.querySelector('input[name="satisfaction"]:checked');
+
+                if (!satisfaction) {
+                    alert("Please select your overall satisfaction.");
+                    return;
+                }
+
+                var satisfactionValue = satisfaction.value;
+
+
+                var body = 'First Name: ' + fname + '<br/>Last Name: ' + lname + '<br/>Email Address: ' +
+                    email + '<br/>Phone Number: ' + phone + '<br/>Feedback Message: ' + feedback +
+                    '<br/>Overall Satisfaction: ' + satisfactionValue;
+
+                Email.send({
+                    SecureToken: "cab75d91-6399-4807-902f-06b83bbcf259",
+                    To: 'k230517@nu.edu.pk',
+                    From: "k230687@nu.edu.pk",
+                    Subject: "Feedback Form",
+                    Body: body
+                }).then(function (message) {
+                    alert(message);
+                    window.location.href = 'Thankyou.html';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
