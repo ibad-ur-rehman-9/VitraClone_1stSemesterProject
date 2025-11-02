@@ -16,7 +16,7 @@ A skeleton clone of [Vitra's](https://www.vitra.com/en-un/home?srsltid=AfmBOopCw
 ## SMTP Configuration:
 Set up your smtp server and token from elastic email, [Guide video - RISE COMPUTER SCIENCE EDUCATION](https://youtu.be/bRjpP34MHhk?t=452)
 
-<pre> ```bash 
+```bash 
   Email.send({
   SecureToken: "YOUR_SECURE_TOKEN_HERE",
   To: "recipient@example.com",
@@ -24,4 +24,4 @@ Set up your smtp server and token from elastic email, [Guide video - RISE COMPUT
   Subject: "Feedback Form",
   Body: body
 });
-  ``` </pre>
+  ```
